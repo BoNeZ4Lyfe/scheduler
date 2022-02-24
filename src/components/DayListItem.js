@@ -30,6 +30,3 @@ import "./DayListItem.scss";
   };
   
   
-  //  className={dayListClass}
-  //      onClick={props.onClick}
-  //      disabled={props.disabled}
