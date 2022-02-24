@@ -1,14 +1,20 @@
 import React from "react";
 import classNames from "classnames";
 
-import "./InterviewerListItem.scss";
+import "components/InterviewerListItem.scss";
 
 const InterviewerListItem = (props) => {
-  const interviewerClass = classNames("interviewers_item", {
-    "interviewers_item--selected": props.selected
+  const interviewerClass = classNames("interviewers__item", {
+    "interviewers__item--selected": props.selected,
   });
   return (
-    <li onClick={() => props.setInterviewer(props.id)} className={interviewerClass}>
+    <li
+      onClick={() => {
+        props.setInterviewer(props.id);
+        console.log(props);
+      }}
+      className={interviewerClass}
+    >
       <img
         className="interviewers__item-image"
         src={props.avatar}
@@ -19,6 +25,5 @@ const InterviewerListItem = (props) => {
   );
 };
 export default InterviewerListItem;
-
 
 //ask mentor about unselected state in storybook
