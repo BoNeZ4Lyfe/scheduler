@@ -8,10 +8,7 @@ const InterviewerListItem = (props) => {
     "interviewers__item--selected": props.selected,
   });
   return (
-    <li
-      onClick={props.setInterviewer}
-      className={interviewerClass}
-    >
+    <li onClick={props.setInterviewer} className={interviewerClass}>
       <img
         className="interviewers__item-image"
         src={props.avatar}
@@ -22,5 +19,3 @@ const InterviewerListItem = (props) => {
   );
 };
 export default InterviewerListItem;
-
-
