@@ -9,10 +9,7 @@ const InterviewerListItem = (props) => {
   });
   return (
     <li
-      onClick={() => {
-        props.setInterviewer(props.id);
-        console.log(props);
-      }}
+      onClick={props.setInterviewer}
       className={interviewerClass}
     >
       <img
@@ -26,4 +23,4 @@ const InterviewerListItem = (props) => {
 };
 export default InterviewerListItem;
 
-//ask mentor about unselected state in storybook
+
