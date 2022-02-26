@@ -8,7 +8,7 @@ export default function Form(props) {
 
   const reset = () => {
     setStudent("");
-    setInterviewer("");
+    setInterviewer(null);
   };
 
   const cancel = () => {
@@ -28,7 +28,6 @@ export default function Form(props) {
             value={student}
             onChange={(event) => {
               setStudent(event.target.value);
-              console.log(`my event ${event.target.value}`);
             }}
           />
         </form>
@@ -36,8 +35,7 @@ export default function Form(props) {
           interviewers={props.interviewers}
           value={interviewer}
           onChange={(event) => {
-            setInterviewer(event)
-            console.log(`my event ${event}, my prop ${props}`);
+            setInterviewer(event);
           }}
         />
       </section>
@@ -46,7 +44,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={props.onSave}>
+          <Button confirm onClick={() => props.onSave(student, interviewer)}>
             Save
           </Button>
         </section>
