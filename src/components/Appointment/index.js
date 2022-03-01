@@ -6,6 +6,7 @@ import Empty from "./Empty";
 import "components/Appointment/styles.scss";
 
 export default function Appointment(props) {
+  console.log('this is props',props)
   return (
     <article className="appointment">
       <Header time={props.time} />
