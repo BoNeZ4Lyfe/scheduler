@@ -30,7 +30,6 @@ export function getInterview(state, interview) {
 
   const id = interview.interviewer;
   interviewResult.student = interview.student;
-  console.log(' checking error ', state.interviewers[id])
 
   interviewResult.interviewer = {
     id: id,
