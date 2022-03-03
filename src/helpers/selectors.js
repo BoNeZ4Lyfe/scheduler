@@ -16,8 +16,8 @@ export function getInterviewersForDay(state, day) {
     return [];
   }
 
-  const dayArr = interviewerDay[0].appointments.map(
-    (id) => state.appointments[id]
+  const dayArr = interviewerDay[0].interviewers.map(
+    (id) => state.interviewers[id]
   );
   return dayArr;
 }
@@ -30,6 +30,7 @@ export function getInterview(state, interview) {
 
   const id = interview.interviewer;
   interviewResult.student = interview.student;
+  console.log(' checking error ', state.interviewers[id])
 
   interviewResult.interviewer = {
     id: id,
