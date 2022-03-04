@@ -26,6 +26,45 @@ export default function useApplicationData() {
 
   const setDay = (day) => setState((prev) => ({ ...prev, day: day }));
 
+  // const getSpotsForDay = function (day, appointments) {
+  //   let spot = 0;
+
+  //   for (const id of day.appointments) {
+  //     const appointment = appointments[id];
+  //     if (!appointment.interview) {
+  //       spot++;
+  //     }
+  //   }
+  //   return spot;
+  // };
+
+  // const updateSpots = function (state, appointments, id) {
+  //   const dayObj = state.days.find((day) => day.name === state.day);
+  //   const spots = getSpotsForDay(dayObj, appointments);
+
+  //   const day = { ...dayObj, spots };
+
+  //   const newDays = state.days.map((theDay) =>
+  //     theDay.name === state.day ? day : theDay
+  //   );
+
+  //   return newDays;
+  // };
+
+  const getSpotsForDay = function (state, appointments) {
+    let spot = 0;
+
+    const foundDay = state.days.filter(d => d.name === state.day)[0];
+
+    foundDay.appointments.forEach(appointmentId => {
+      const appointment = appointments[appointmentId] ;
+      if(!appointment.interview) {
+        spot++;
+      }
+    })
+    return spot;
+    }
+
   function bookInterview(id, interview) {
     const appointment = {
       ...state.appointments[id],
@@ -36,11 +75,20 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
+    const days = state.days.map(day => {
+      if(day.name === state.day) {
+        return {...day, spots: getSpotsForDay(state, appointments)}
+      }
+      else {
+        return day;
+      }
+    })
 
     return axios.put(`/api/appointments/${id}`, appointment).then((res) => {
       setState({
         ...state,
         appointments,
+         days,
       });
     });
   }
@@ -55,11 +103,20 @@ export default function useApplicationData() {
       ...state.appointments,
       [id]: appointment,
     };
+    const days = state.days.map(day => {
+      if(day.name === state.day) {
+        return {...day, spots: getSpotsForDay(state, appointments)}
+      }
+      else {
+        return day;
+      }
+    })
 
     return axios.delete(`/api/appointments/${id}`).then((res) => {
       setState({
         ...state,
         appointments,
+        days
       });
     });
   }
