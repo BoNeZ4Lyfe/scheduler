@@ -4,12 +4,16 @@ The interview scheduler is a single page React application that allows students 
 
 ## Final Product
 
+## Homepage
 !["Screenshot of Homepage"](https://github.com/BoNeZ4Lyfe/scheduler/blob/master/docs/homepage.png?raw=true)
 
+## Booking
 !["Screenshot of Booking"](https://github.com/BoNeZ4Lyfe/scheduler/blob/master/docs/booking.png?raw=true)
 
+## Booking Updated
 !["Screenshot of Booking Updated"](https://github.com/BoNeZ4Lyfe/scheduler/blob/master/docs/booking-update.png?raw=true)
 
+## Booking Delete
 !["Screenshot of Delete"](https://github.com/BoNeZ4Lyfe/scheduler/blob/master/docs/delete.png?raw=true)
 
 
