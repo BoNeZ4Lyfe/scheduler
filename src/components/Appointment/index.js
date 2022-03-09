@@ -43,7 +43,7 @@ export default function Appointment(props) {
       student: name,
       interviewer,
     };
-    transition(CONFIRM, true);
+    transition(SHOW, true);
     transition(DELETE);
     props
       .cancelInterview(props.id, interview)
